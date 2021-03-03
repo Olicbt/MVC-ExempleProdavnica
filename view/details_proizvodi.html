@@ -1,0 +1,29 @@
+<div class="container">
+<h3>Внеси производ</h3>
+<div class="alert alert-success" ng-show="success">Uspesno vnesovte proizvod</div>
+<form name="myForm">
+
+  <div class="form-group">
+    <label for="imeProizvod">Име на производ:</label>
+	<div class="alert alert-danger" ng-show="myForm.imeProizvod.$invalid && myForm.imeProizvod.$dirty">Vnesete proizvod</div>
+    <input type="text" class="form-control" id="imeProizvod" name="imeProizvod" ng-model="imeProizvod" ng-minlength="5" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="opis">Опис:</label>
+    <input type="text" class="form-control" id="opis" name="opis" ng-model="opis">
+  </div>
+  
+  <div class="form-group">
+    <label for="cena">Цена:</label>
+    <input type="number" class="form-control" id="cena" name="cena" ng-model="cena">
+  </div>
+  
+  <div class="form-group">
+    <label for="popust">Попуст:</label>
+    <input type="number" class="form-control" id="popust" name="popust" ng-model="popust" ng-init="popust=0">
+  </div>
+  
+  <button type="submit" class="btn btn-primary" ng-click="details_proizvodi_fun(imeProizvod, opis, cena, popust)">Зачувај</button>
+</form>
+</div>

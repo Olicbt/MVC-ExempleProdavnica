@@ -1,0 +1,34 @@
+<div class="container">
+<h3>Внеси продажба</h3>
+<div class="alert alert-success" ng-show="success">Uspesno vnesovte prodazba</div>
+<form name="myForm">
+
+  <div class="form-group">
+    <label for="potrosuvac_id">Име и презиме:</label>
+    <select class="form-control" id="potrosuvac_id" name="potrosuvac_id" ng-model="potrosuvac_id">
+	<option ng-repeat="potrosuvac in potrosuvaci" value="{{potrosuvac.potrosuvac_id}}">{{potrosuvac.ime}} {{potrosuvac.adresa}}</option>
+	</select>
+  </div>
+  
+  <div class="form-group">
+    <label for="proizvod_id">Производ:</label>
+    <select class="form-control" id="proizvod_id" name="proizvod_id" ng-model="proizvod_id">
+  <option ng-repeat="proizvod in proizvodi" value="{{proizvod.proizvod_id}}">{{proizvod.imeProizvod}} {{proizvod.opis}}</option>
+</select>  
+  </div>
+  
+  <div class="form-group">
+    <label for="kolicina">Количина:</label>
+	<div class="alert alert-danger" ng-show="myForm.kolicina.$invalid && myForm.kolicina.$dirty">Внеси количина</div>
+    <input type="number" class="form-control" id="kolicina" name="kolicina" ng-model="kolicina" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="data">Дата:</label>
+	<div class="alert alert-danger" ng-show="myForm.data.$invalid && myForm.data.$dirty">Внеси дата</div>
+    <input type="text" class="form-control" id="data" name="data" ng-model="data" placeholder="година-месец-ден" required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary" ng-click="details_prodazba_fun(potrosuvac_id, proizvod_id, kolicina, data)">Зачувај</button>
+</form>
+</div>

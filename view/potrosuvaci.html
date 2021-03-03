@@ -1,0 +1,31 @@
+<h3>Потрошувачи</h3>
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+	 
+	 <th>
+	 <input type="text" name="SearchByIme" id="SearchByIme" ng-model="SearchByIme" placeholder="Пребарај по име"></th>
+	 <th>
+	 <input type="text" name="SearchByAdresa" id="SearchByAdresa" ng-model="SearchByAdresa" placeholder="Пребарај по адреса"></th>
+	 <th>
+	 <input type="text" name="SearchByTelefon" id="SearchByTelefon" ng-model="SearchByTelefon" placeholder="Пребарај по телефон"></th>
+	 <th>Е_пошта</th>
+	 <th>Промени</th>
+	 <th>Избриши</th>
+	</tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="potrosuvac in potrosuvaci | filter:{ime:SearchByIme, adresa:SearchByAdresa, telefon:SearchByTelefon}">
+	 
+	 <td>{{potrosuvac.ime}}</td>
+	 <td>{{potrosuvac.adresa}}</td>
+	 <td>{{potrosuvac.telefon}}</td>
+	 <td>{{potrosuvac.email}}</td>
+	 <td><i class="fas fa-pencil-alt"></i></td>
+	 <td><button ng-click="deleteRow('potrosuvaci',potrosuvac.potrosuvac_id)" i class="fas fa-trash-alt" ></i></td>
+	</tr>
+  </tbody>
+</table>
+</div>

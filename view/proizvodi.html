@@ -1,0 +1,42 @@
+<h3>Производи</h3>
+<div class="table-responsive">
+<div class="search">
+<input class="form-control" id="myInput" type="text" placeholder="Пребарај...">
+</div>
+<br>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+	 
+	 <th>Име на производ</th>
+	 <th>Опис</th>
+	 <th>Цена</th>
+	 <th>Попуст</th>
+	 <th>Промени</th>
+	 <th>Избриши</th>
+	</tr>
+  </thead>
+  <tbody id="myTable">
+    <tr ng-repeat="proizvod in proizvodi">
+	 
+	 <td>{{proizvod.imeProizvod}}</td>
+	 <td>{{proizvod.opis}}</td>
+	 <td>{{proizvod.cena}}</td>
+	 <td>{{proizvod.popust}}</td>
+	 <td><i class="fas fa-pencil-alt"></i></td>
+	 <td><button ng-click="deleteRow('proizvodi',proizvod.proizvod_id)"i class="fas fa-trash-alt"></i></td>
+	</tr>
+  </tbody>
+</table>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
